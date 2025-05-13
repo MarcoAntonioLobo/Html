@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meu Site Top 2.0</title>
+  <style>
+    :root {
+      --cor-principal: #00ffcc;
+      --cor-secundaria: #00c9a7;
+      --cor-fundo: #1d1d1d;
+      --cor-header: #111;
+      --cor-texto: #fff;
+      --cor-footer: #aaa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, var(--cor-fundo), #333);
+      color: var(--cor-texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--cor-header);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 26px;
+      color: var(--cor-principal);
+    }
+
+    nav a {
+      color: var(--cor-texto);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--cor-principal);
+    }
+
+    main {
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .btn {
+      background-color: var(--cor-principal);
+      color: #111;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--cor-secundaria);
+    }
+
+    footer {
+      background-color: var(--cor-header);
+      color: var(--cor-footer);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meu Site Top</h1>
+    <nav aria-label="Navegação principal">
+      <a href="#">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Contato</a>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <h2>Bem-vindo ao Meu Site Incrível 2.0</h2>
+    <p>Design moderno, alta performance e total responsividade. Ideal para projetos profissionais e portfólios.</p>
+    <button class="btn">Saiba Mais</button>
+  </main>
+
+  <footer>
+    &copy; 2025 Meu Site Top. Todos os direitos reservados.
+  </footer>
+</body>
+</html>
