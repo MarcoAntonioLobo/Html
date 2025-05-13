@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meu Site Top 2.0</title>
+  <meta name="description" content="Portfólio de DevOps - Marco Antonio Lobo" />
+  <meta name="author" content="Marco Antonio Lobo" />
+  <title>Portfólio DevOps - Marco Antonio Lobo</title>
   <style>
     :root {
       --cor-principal: #00ffcc;
@@ -12,6 +14,8 @@
       --cor-header: #111;
       --cor-texto: #fff;
       --cor-footer: #aaa;
+      --padding: 20px;
+      --max-width: 1200px;
     }
 
     * {
@@ -25,19 +29,31 @@
       background: linear-gradient(120deg, var(--cor-fundo), #333);
       color: var(--cor-texto);
       line-height: 1.6;
+      font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
     }
 
     header {
       background-color: var(--cor-header);
-      padding: 20px 50px;
+      padding: var(--padding) 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
+      max-width: var(--max-width);
+      box-sizing: border-box;
+      flex-wrap: wrap;
     }
 
     header h1 {
       font-size: 26px;
       color: var(--cor-principal);
+      text-transform: uppercase;
     }
 
     nav a {
@@ -48,16 +64,22 @@
       transition: color 0.3s ease;
     }
 
-    nav a:hover {
+    nav a:hover,
+    nav a:focus {
       color: var(--cor-principal);
+      outline: none;
     }
 
     main {
       padding: 40px 20px;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
       text-align: center;
+      width: 100%;
+      max-width: var(--max-width);
+      margin-top: 30px;
     }
 
     .hero h2 {
@@ -76,25 +98,110 @@
     .btn {
       background-color: var(--cor-principal);
       color: #111;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background-color: var(--cor-secundaria);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .section {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .skill-card {
+      background-color: var(--cor-header);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .footer {
+      background-color: var(--cor-header);
+      color: var(--cor-footer);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer a {
+      color: var(--cor-footer);
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    /* Formulário de Contato */
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .form-container textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .form-container button {
+      background-color: var(--cor-principal);
+      color: #111;
       padding: 15px 30px;
       border: none;
       border-radius: 8px;
       font-size: 1rem;
       font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    .btn:hover {
+    .form-container button:hover {
       background-color: var(--cor-secundaria);
-    }
-
-    footer {
-      background-color: var(--cor-header);
-      color: var(--cor-footer);
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
+      transform: translateY(-2px);
     }
 
     @keyframes fadeInDown {
@@ -117,10 +224,11 @@
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       header {
         flex-direction: column;
         align-items: flex-start;
+        justify-content: center;
       }
 
       nav {
@@ -128,33 +236,133 @@
       }
 
       .hero h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
 
       .hero p {
         font-size: 1rem;
+      }
+
+      .skills {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 12px;
+      }
+
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        font-size: 0.8rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Meu Site Top</h1>
+    <h1>Portfólio DevOps - Marco Antonio Lobo</h1>
     <nav aria-label="Navegação principal">
-      <a href="#">Início</a>
-      <a href="#">Sobre</a>
-      <a href="#">Contato</a>
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#habilidades">Minhas Habilidades</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
     </nav>
   </header>
 
-  <main class="hero">
-    <h2>Bem-vindo ao Meu Site Incrível 2.0</h2>
-    <p>Design moderno, alta performance e total responsividade. Ideal para projetos profissionais e portfólios.</p>
+  <main id="inicio" class="hero">
+    <h2>Bem-vindo ao Meu Portfólio DevOps</h2>
+    <p>Sou Marco Antonio Lobo, um apaixonado por DevOps com experiência em automação, integração e entrega contínua. Confira minhas habilidades e projetos abaixo!</p>
     <button class="btn">Saiba Mais</button>
   </main>
 
-  <footer>
-    &copy; 2025 Meu Site Top. Todos os direitos reservados.
+  <!-- Seção "Sobre" -->
+  <section id="sobre" class="section">
+    <h2>Sobre Mim</h2>
+    <p>Sou desenvolvedor e especialista em DevOps, com experiência em ambientes de nuvem, automação de processos e otimização de pipelines. Tenho habilidades com ferramentas como Docker, Kubernetes, Terraform, Ansible, Jenkins e muito mais.</p>
+  </section>
+
+  <!-- Seção de Habilidades -->
+  <section id="habilidades" class="section">
+    <h2>Minhas Habilidades</h2>
+    <div class="skills">
+      <div class="skill-card">
+        <h3>Docker</h3>
+        <p>Utilizo Docker para contêinerização de aplicações, facilitando o deploy e gerenciamento de ambientes.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Kubernetes</h3>
+        <p>Orquestro contêineres com Kubernetes, criando clusters de alta disponibilidade e escalabilidade.</p>
+      </div>
+      <div class="skill-card">
+        <h3>CI/CD</h3>
+        <p>Crio e mantenho pipelines de CI/CD com ferramentas como Jenkins e GitLab CI para automação de testes e deploys.</p>
+      </div>
+      <div class="skill-card">
+        <h3>AWS</h3>
+        <p>Gerencio infraestrutura na AWS, utilizando serviços como EC2, RDS, S3 e VPC para criar soluções robustas.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Terraform</h3>
+        <p>Automatizo a criação e gerenciamento de infraestrutura como código utilizando Terraform.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Ansible</h3>
+        <p>Utilizo Ansible para automatizar o provisionamento e configuração de servidores e aplicativos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Projetos -->
+  <section id="projetos" class="section">
+    <h2>Meus Projetos</h2>
+    <p>Confira alguns dos meus projetos desenvolvidos utilizando práticas DevOps:</p>
+    <div class="skills">
+      <div class="skill-card">
+        <h3>Infraestrutura como Código</h3>
+        <p>Utilizando Terraform e AWS para criar uma infraestrutura escalável e de fácil manutenção.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Pipeline de CI/CD</h3>
+        <p>Implementação de pipeline de integração contínua e deploy automático utilizando Jenkins e GitHub Actions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Contato -->
+  <section id="contato" class="section">
+    <h2>Contato</h2>
+    <p>Entre em contato para mais informações ou oportunidades de colaboração!</p>
+    <div class="form-container">
+      <input type="text" placeholder="Seu Nome" />
+      <input type="email" placeholder="Seu E-mail" />
+      <textarea placeholder="Sua Mensagem"></textarea>
+      <button>Enviar</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 Marco Antonio Lobo. Todos os direitos reservados.</p>
+    <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+    <a href="https://github.com" target="_blank">GitHub</a>
   </footer>
 </body>
 </html>
